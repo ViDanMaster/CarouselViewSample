@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarouselViewSample.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="Black">#000000</Color>
+            <!-- Light -->
+            <Color x:Key="Primary">#fac710</Color>
+            <Color x:Key="AccentYellow">#fef88f</Color>
+            <Color x:Key="AccentBlue">#414bb2</Color>
+            <Color x:Key="Shadow">#0a234d</Color>
+            <Color x:Key="OffWhite">#F8F8FF</Color>
+            <Color x:Key="Bg">#FBFBFF</Color>
+            <Color x:Key="Text">#121212</Color>
+
+            <x:Double x:Key="ShadowOffset">10</x:Double>
+            <x:Double x:Key="ShadowRadius">12</x:Double>
+
+            <!-- Dark -->
+            <Color x:Key="PrimaryDark">#FFD740</Color>
+            <Color x:Key="AccentYellowDark">#FFE57F</Color>
+            <Color x:Key="AccentBlueDark">#a4b7ff</Color>
+            <Color x:Key="OffBlack">#222222</Color>
+            <Color x:Key="BgDark">#121212</Color>
+            <!-- 15151b -->
+            <Color x:Key="ShadowDark">#080808</Color>
+            <Color x:Key="TextDark">#fafafa</Color>
+
+            <x:Double x:Key="ShadowOffsetDark">-3</x:Double>
+            <x:Double x:Key="ShadowRadiusDark">3</x:Double>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

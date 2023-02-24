@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:math="clr-namespace:CSharpMath.Forms;assembly=CSharpMath.Forms"
+             xmlns:model="clr-namespace:CarouselViewSample.Models;assembly=CarouselViewSample"
+             x:Class="CarouselViewSample.MainPage">
+
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="RadioButtonTemplate">
+            <Frame
+                   BackgroundColor="{AppThemeBinding Light={StaticResource Bg}, Dark={StaticResource OffBlack}}"
+                   BorderColor="#F3F2F1"
+                   HasShadow="False"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Padding="0" >
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="Uncommon">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor" Value="{StaticResource AccentBlue}" />
+                                    <Setter TargetName="check" Property="Opacity" Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter Property="BorderColor" Value="#F3F2F1" />
+                                    <Setter TargetName="check" Property="Opacity" Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid WidthRequest="20" HeightRequest="20" HorizontalOptions="End" VerticalOptions="Center">
+                        <Ellipse Stroke="{StaticResource Primary}"
+                                    Fill="White"
+                                    WidthRequest="16"
+                                    HeightRequest="16"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+                        <Ellipse x:Name="check"
+                                    Fill="{StaticResource Primary}"
+                                    WidthRequest="10"
+                                    HeightRequest="10"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+                    </Grid>
+                    <ContentPresenter Grid.Column="1"/>
+                </Grid>
+            </Frame>
+        </ControlTemplate>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="CarouselView binding sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <CarouselView ItemsSource="{Binding Employees}" Loop="False" IsSwipeEnabled="True">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"
+                                    SnapPointsType="MandatorySingle"
+                                    SnapPointsAlignment="Center" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <math:TextView Grid.ColumnSpan="2" LaTeX="{Binding Kerdes}" />
+
+                        <RadioButton Value="1" ControlTemplate="{StaticResource RadioButtonTemplate}" Grid.Row="1" Grid.Column="0" GroupName="{Binding ID}">
+                            <RadioButton.Content>
+                                <math:TextView LaTeX="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type model:Feladatok}}, Path=Valasz1}" />
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="2" ControlTemplate="{StaticResource RadioButtonTemplate}" Grid.Row="1" Grid.Column="1" GroupName="{Binding ID}">
+                            <RadioButton.Content>
+                                <math:TextView LaTeX="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type model:Feladatok}}, Path=Valasz2}" />
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="3" ControlTemplate="{StaticResource RadioButtonTemplate}" Grid.Row="2" Grid.Column="0" GroupName="{Binding ID}">
+                            <RadioButton.Content>
+                                <math:TextView LaTeX="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type model:Feladatok}}, Path=Valasz3}" />
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="4" ControlTemplate="{StaticResource RadioButtonTemplate}" Grid.Row="2" Grid.Column="1" GroupName="{Binding ID}">
+                            <RadioButton.Content>
+                                <math:TextView LaTeX="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type model:Feladatok}}, Path=Valasz4}" />
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="5" ControlTemplate="{StaticResource RadioButtonTemplate}" Grid.Row="3" Grid.Column="0" GroupName="{Binding ID}">
+                            <RadioButton.Content>
+                                <math:TextView LaTeX="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type model:Feladatok}}, Path=Valasz5}" />
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton Value="6" ControlTemplate="{StaticResource RadioButtonTemplate}" Grid.Row="3" Grid.Column="1" GroupName="{Binding ID}">
+                            <RadioButton.Content>
+                                <math:TextView LaTeX="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type model:Feladatok}}, Path=Valasz6}"/>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </StackLayout>
+
+</ContentPage>
+
