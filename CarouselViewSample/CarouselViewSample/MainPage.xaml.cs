@@ -23,7 +23,7 @@ namespace CarouselViewSample
 
             // TODO Only do this when app first runs
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(App)).Assembly;
-            using (Stream stream = assembly.GetManifestResourceStream("ExistingSQLiteDbSample.FeladatokAdatbazis.db3"))
+            using (Stream stream = assembly.GetManifestResourceStream("CarouselViewSample.FeladatokAdatbazis.db3"))
             {
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
