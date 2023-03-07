@@ -66,7 +66,7 @@
             <Label Text="CarouselView binding sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <ScrollView>
-            <local:NoCacheCarouselView ItemsSource="{Binding Employees}" Loop="False" IsSwipeEnabled="True">
+            <CarouselView ItemsSource="{Binding Employees}" Loop="False" IsSwipeEnabled="True">
                 <CarouselView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal"
                                     SnapPointsType="MandatorySingle"
@@ -120,7 +120,7 @@
                         </Grid>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
-            </local:NoCacheCarouselView>
+            </CarouselView>
         </ScrollView>
     </StackLayout>
 
